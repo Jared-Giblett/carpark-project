@@ -1,5 +1,5 @@
 class CarPark:
-    def __init__(self, location = "Unknown", capacity = 100, plates = None, sensors = None, displays = None):
+    def __init__(self, location="Unknown", capacity=100, plates=None, sensors=None, displays=None):
         self.location = location
         self.capacity = capacity
         self.plates = plates
