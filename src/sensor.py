@@ -1,2 +1,2 @@
-class Sensor
+class Sensor:
     pass
