@@ -14,7 +14,7 @@ class CarPark:
 
 
     def register(self, component):
-        if not isinstance(component, (Sensor, Display))
+        if not isinstance(component, (Sensor, Display)):
             raise TypeError("Object must be a Sensor or Display")
         if isinstance(component, Sensor):
             self.sensors.append(component)
