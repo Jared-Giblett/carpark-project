@@ -5,11 +5,11 @@ class CarPark:
     def __init__(self, location="Unknown", capacity=100, plates=None, sensors=None, displays=None):
         self.location = location
         self.capacity = capacity
-        self.plates = plates
-        self.sensors = sensors
-        self.displays = displays
+        self.plates = plates or []
+        self.sensors = sensors or []
+        self.displays = displays or []
 
-    def __str___(self):
+    def __str__(self):
         return f"Car park at {self.location}, with {self.capacity} bays."
 
 
@@ -30,7 +30,7 @@ class CarPark:
         self.update_displays()
 
     def update_displays(self):
-        data = {"available_bays": self.available_bays, "temperature": 25}
+        data = {"Location": self.location, "available bays": self.available_bays, "temperature": 25}
         for display in self.displays:
             display.update(data)
 

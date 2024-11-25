@@ -1,5 +1,7 @@
 import unittest
 from car_park import CarPark
+from display import Display
+from sensor import EntrySensor, ExitSensor
 
 class TestCarPark(unittest.TestCase):
       def setUp(self):
