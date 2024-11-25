@@ -10,6 +10,8 @@ class Display:
 
     def update(self, data):
         self.data = data
-
+        print("*"*80)
+        print(f"Id: {self.id}")
         for key, value in self.data.items():
             print(f"{key}: {value}")
+        print("*"*80)
