@@ -3,7 +3,7 @@ from sensor import EntrySensor, ExitSensor
 from display import Display
 
 def main():
-    car_park1 = CarPark("Moondalup", 100)
+    car_park1 = CarPark("Moondalup", 100, "log.txt")
     entry_sensor1 = EntrySensor(1, car_park1, True)
     exit_sensor1 = ExitSensor(2, car_park1, True)
     display = Display(1, car_park1, "Welcome to Moondalup", True)
