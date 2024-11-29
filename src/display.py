@@ -4,6 +4,7 @@ class Display:
         self.data = data or {}
         self.is_on = is_on
         self.car_park = car_park
+        print(self.id)
 
     def __str__(self):
         return f"Display {self.id}: {self.data}"

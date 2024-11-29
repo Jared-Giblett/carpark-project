@@ -65,19 +65,19 @@ This guide provides detailed step-by-step instructions for completing the projec
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-```markdown
+
 ![Initial commit](images/mu_image.png)
-```
+
 
 ### Identify classes, methods, and attributes
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes                           | Methods |
-| ---------- |--------------------------------------| ------- |
-| `CarPark`    | Total number of bays, available bays |         |
-| `Sensor`     |                                      |         |
-| `Display`    |                                      |         |
+| Class Name | Attributes                           | Methods                    |
+| ---------- |--------------------------------------|----------------------------|
+| `CarPark`    | Total number of bays, available bays | add_car, remove_car        |
+| `Sensor`     | Id, carpark                          | detect_vehicle, scan_plate |
+| `Display`    | id, message                          | update_display             |
 
 **Additional evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
@@ -105,9 +105,9 @@ Ensure you have completed the previous table and include at least two methods an
 **Additional evidencing:**
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
-```markdown
+
 ![Added stubs for classes](images/stubs-for-classes.png)
-```
+
 
 ### Add constructors and attributes to the classes
 
@@ -370,10 +370,16 @@ You may want to see the number of available bays, the current temperature, and t
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+> 
+>CarPark because the car park setup sets the number of bays.
+> 
 >Q. Which class is responsible for the current temperature (and why)?
->
+> 
+> CarPark because the location of the car park determines the temperature.
+> 
 >Q. Which class is responsible for the time (and why)?
+> 
+> CarPark because the location of the car park determines the time.
 >
 --------
 
@@ -445,26 +451,26 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
+
 ![Added methods to the car park class](images/methods-to-car-park.png)
-```
+
 
 Answer the following questions:
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - _The number of available bays_
->      `Answer here...`
+>      `CarPark because the car park itself determines the total number of bays`
 >    - _The current temperature_
->      `Answer here...`
+>      `CarPark because the location of the car park determines the temperature`
 >    - _The time_
->      `Answer here...`
+>      `CarPark because the location of the car park determines the local time`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `An attribute can be accessed with class.attribute and a property is accessed with a method.`
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `You can send multiple values to the display, but they are unordered so the data can be in different orders`
 
 #### Add a detect vehicle method to the Sensor class
 
@@ -707,9 +713,9 @@ if __name__ == "__main__":
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](images/unit-tests.png)
-   ```
+![Unit tests](images\debugging error.png)
+![Unit tests](images\fixed debug.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
 3. Push the tag to the remote repository:
@@ -766,9 +772,9 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](images/unit-tests-display.png)
-   ```
+![Unit tests](images\debugging error 2.png)
+![Unit tests](images\fixed debug 2.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
@@ -787,7 +793,8 @@ Finally, we'll create tests for the `Sensor` class. These tests will test the `_
 
 The car park register method should accept a `Sensor` or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Sensor` unit tests? Why?
 
-> Answer here...
+> It should be tested in the CarPark unit tests because it is adding display and sensor objects to the car park.
+> 
 
 Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation:
 

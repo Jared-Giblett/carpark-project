@@ -6,7 +6,7 @@ class TestSensor(unittest.TestCase):
     def setUp(self):
         self.car_park = CarPark("123 Example Street", 100)
         self.entry_sensor = EntrySensor(12, self.car_park, True)
-        self.exit_sensor = EntrySensor(21, self.car_park, True)
+        self.exit_sensor = ExitSensor(21, self.car_park, True)
 
     def test_entry_senor(self):
         self.assertIsInstance(self.entry_sensor, EntrySensor)
